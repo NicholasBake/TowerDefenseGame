@@ -21,5 +21,5 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
 endif()
 
 
-add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/../Thermus-Engine/src/main.cpp)
-target_link_libraries(${PROJECT_NAME} raylib)
+add_executable(main ${CMAKE_CURRENT_SOURCE_DIR}/../TowerDefenseGame/src/main.cpp)
+target_link_libraries(main raylib)

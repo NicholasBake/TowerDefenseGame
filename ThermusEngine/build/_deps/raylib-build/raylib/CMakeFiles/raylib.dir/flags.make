@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP
 
-C_INCLUDES = -I/media/nicholas/E/ThermusEngine/build/_deps/raylib-src/src -isystem /media/nicholas/E/ThermusEngine/build/_deps/raylib-src/src/external/glfw/include
+C_INCLUDES = -I/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-src/src -isystem /media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-src/src/external/glfw/include
 
 C_FLAGS = -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -std=gnu99
 

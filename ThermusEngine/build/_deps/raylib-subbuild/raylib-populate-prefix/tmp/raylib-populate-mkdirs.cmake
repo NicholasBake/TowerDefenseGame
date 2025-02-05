@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "/media/nicholas/E/ThermusEngine/build/_deps/raylib-src"
-  "/media/nicholas/E/ThermusEngine/build/_deps/raylib-build"
-  "/media/nicholas/E/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix"
-  "/media/nicholas/E/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/tmp"
-  "/media/nicholas/E/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp"
-  "/media/nicholas/E/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/src"
-  "/media/nicholas/E/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp"
+  "/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-src"
+  "/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-build"
+  "/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix"
+  "/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/tmp"
+  "/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp"
+  "/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/src"
+  "/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/media/nicholas/E/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/media/nicholas/E/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp${cfgdir}") # cfgdir has leading slash
 endif()

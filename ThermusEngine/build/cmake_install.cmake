@@ -1,4 +1,4 @@
-# Install script for directory: /media/nicholas/E/ThermusEngine/build
+# Install script for directory: /media/nicholas/E/Tower-defense/ThermusEngine/build
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/media/nicholas/E/ThermusEngine/build/_deps/raylib-build/cmake_install.cmake")
+  include("/media/nicholas/E/Tower-defense/ThermusEngine/build/_deps/raylib-build/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/media/nicholas/E/ThermusEngine/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/media/nicholas/E/Tower-defense/ThermusEngine/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

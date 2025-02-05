@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/nicholas/E/ThermusEngine/build
+CMAKE_SOURCE_DIR = /media/nicholas/E/Tower-defense/ThermusEngine/build
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/nicholas/E/ThermusEngine/build
+CMAKE_BINARY_DIR = /media/nicholas/E/Tower-defense/ThermusEngine/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /media/nicholas/E/ThermusEngine/build/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /media/nicholas/E/Tower-defense/ThermusEngine/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -152,9 +152,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nicholas/E/ThermusEngine/build/CMakeFiles /media/nicholas/E/ThermusEngine/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nicholas/E/Tower-defense/ThermusEngine/build/CMakeFiles /media/nicholas/E/Tower-defense/ThermusEngine/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/nicholas/E/ThermusEngine/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/nicholas/E/Tower-defense/ThermusEngine/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -182,17 +182,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Thermus_Application
+# Target rules for targets named main
 
 # Build rule for target.
-Thermus_Application: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Thermus_Application
-.PHONY : Thermus_Application
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-Thermus_Application/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Thermus_Application.dir/build.make CMakeFiles/Thermus_Application.dir/build
-.PHONY : Thermus_Application/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 #=============================================================================
 # Target rules for targets named uninstall
@@ -246,29 +246,29 @@ update_mappings/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build
 .PHONY : update_mappings/fast
 
-media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.o: media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.o
-.PHONY : media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.o
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.o: media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.o
 
 # target to build an object file
-media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Thermus_Application.dir/build.make CMakeFiles/Thermus_Application.dir/media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.o
-.PHONY : media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.o
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o
 
-media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.i: media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.i
-.PHONY : media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.i
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.i: media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.i
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.i
 
 # target to preprocess a source file
-media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Thermus_Application.dir/build.make CMakeFiles/Thermus_Application.dir/media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.i
-.PHONY : media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.i
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.i
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.i
 
-media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.s: media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.s
-.PHONY : media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.s
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.s: media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.s
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.s
 
 # target to generate assembly for a file
-media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Thermus_Application.dir/build.make CMakeFiles/Thermus_Application.dir/media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.s
-.PHONY : media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.cpp.s
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.s
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.s
 
 # Help Target
 help:
@@ -286,12 +286,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... uninstall"
 	@echo "... update_mappings"
-	@echo "... Thermus_Application"
 	@echo "... glfw"
+	@echo "... main"
 	@echo "... raylib"
-	@echo "... media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.o"
-	@echo "... media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.i"
-	@echo "... media/nicholas/E/ThermusEngine/Thermus-Engine/src/main.s"
+	@echo "... media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.o"
+	@echo "... media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.i"
+	@echo "... media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.s"
 .PHONY : help
 
 
