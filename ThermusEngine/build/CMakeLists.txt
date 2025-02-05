@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(Thermus_Application) # Put C,C++ or anything in place of XX 
+project(main) # Put C,C++ or anything in place of XX 
 set(CMAKE_CXX_STANDARD 20)    # Specify standard of language in place of STANDARD  
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -21,5 +21,5 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
 endif()
 
 
-add_executable(main ${CMAKE_CURRENT_SOURCE_DIR}/../TowerDefenseGame/src/main.cpp)
+add_executable(main ${CMAKE_CURRENT_SOURCE_DIR}/../TowerDefenseGame/src/Tile.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../TowerDefenseGame/src/main.cpp)
 target_link_libraries(main raylib)

@@ -69,10 +69,24 @@ include CMakeFiles/main.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main.dir/flags.make
 
+CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.o: /media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp
+CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/nicholas/E/Tower-defense/ThermusEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.o -MF CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.o.d -o CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.o -c /media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp
+
+CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp > CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.i
+
+CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp -o CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.s
+
 CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o: /media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp
 CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/nicholas/E/Tower-defense/ThermusEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/nicholas/E/Tower-defense/ThermusEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o -MF CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o.d -o CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o -c /media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp
 
 CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.i: cmake_force
@@ -85,11 +99,13 @@ CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGam
 
 # Object files for target main
 main_OBJECTS = \
+"CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.o" \
 "CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
+main: CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.o
 main: CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/main.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: _deps/raylib-build/raylib/libraylib.a
@@ -99,7 +115,7 @@ main: /usr/lib/x86_64-linux-gnu/libGLU.so
 main: /usr/lib/x86_64-linux-gnu/librt.a
 main: /usr/lib/x86_64-linux-gnu/libm.so
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/media/nicholas/E/Tower-defense/ThermusEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/media/nicholas/E/Tower-defense/ThermusEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
