@@ -1,17 +1,19 @@
+#include <raylib.h>
+
 enum TILE_TYPE{
     TOWER,
     PATH,
-    BACKGROUND
+    BACKGROUND    
 };
+
 class Tile
 {
 private:
-    /* data */
+    void Scale();
 public:
-    
+
     TILE_TYPE TYPE;
-    int scaleX;
-    int scaleY;
-    Tile(TILE_TYPE type = BACKGROUND, int XScale = 1, int YScale = 1);
+    Texture2D texture;
+    Tile(Texture2D Texture = LoadTexture(""), TILE_TYPE type = BACKGROUND);
 };
 

@@ -1,7 +1,7 @@
 #include "Tile.h"
 
-Tile::Tile(TILE_TYPE type, int XScale, int YScale){
+Tile::Tile(Texture2D Texture, TILE_TYPE type){
     TYPE = type;
-    scaleX = XScale;
-    scaleY = YScale;
+    texture = Texture;
+    
 }
