@@ -9,11 +9,15 @@ enum TILE_TYPE{
 class Tile
 {
 private:
-    void Scale();
+    //void Scale();
+    float Scale;
 public:
 
     TILE_TYPE TYPE;
     Texture2D texture;
-    Tile(Texture2D Texture = LoadTexture(""), TILE_TYPE type = BACKGROUND);
+    float x;
+    float y;
+    void SetScale(float i);
+    Tile(Texture2D Texture = LoadTexture(""), TILE_TYPE type = BACKGROUND, float x = 0, float y = 0, float scale = 1);
 };
 

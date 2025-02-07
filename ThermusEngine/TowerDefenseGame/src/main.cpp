@@ -23,11 +23,17 @@ const size_t columns = 50;
 // Map contains the background tiles, the towers will be in a seperate vector as they don't have to be locked by grid
 std::array<std::array<Tile, columns>, rows> Map;
 
+std::vector<Tile> Towers;
+
+float towerScale = 0.1f;
+
+// UNPLACED TOWERS TILES
+Tile zapTowerUnPlaced = Tile();
+
 void Start(){
-    // Need atleast one row of tiles in the map so out of range isn't thrown when initializing the map
 
     // - INITIALISING TEXTURES - 
-    LAZapTower = LoadTexture("../img/LAZapTower.png");
+    LAZapTower = LoadTexture("../TowerDefenseGame/img/LAZapTower.png");
     textures.push_back(LAZapTower);
     
     LTZapTower = LoadTexture("../TowerDefenseGame/img/LTZapTower.png");
@@ -54,10 +60,32 @@ void Start(){
         }
         
     }
-    
+
+    zapTowerUnPlaced = Tile(RTZapTower, BACKGROUND, 50, 50, towerScale);
+    //Towers.push_back(zapTowerUnPlaced);
 }
+int mouseX = 0;
+int mouseY = 0;
 void GameLogic(){
-    
+    mouseX = GetMousePosition().x;
+    mouseY = GetMousePosition().y;
+    if(IsKeyDown(KEY_W)){
+        mainCamera.target.y -= 10;
+    }
+    if(IsKeyDown(KEY_A)){
+        mainCamera.target.x -= 10;
+    }
+    if(IsKeyDown(KEY_S)){
+        mainCamera.target.y += 10;
+    }
+    if(IsKeyDown(KEY_D)){
+        mainCamera.target.x += 10;
+    }
+
+    Vector2 vec = Vector2 { mainCamera.target.x + ((float)mouseX - zapTowerUnPlaced.texture.width/2), mainCamera.target.y + ((float)mouseY - zapTowerUnPlaced.texture.height/2) };
+    Vector2 mouseCoords = GetScreenToWorld2D(vec, mainCamera);
+    zapTowerUnPlaced.x = vec.x;
+    zapTowerUnPlaced.y = vec.y;
 }
 void Paused(){
     
@@ -89,7 +117,22 @@ void Render(){
                 else{
                     x = 0;
                 }
-                y += Map.at(i).at(0).texture.height/4.1f;
+                y += Map.at(i).at(0).texture.height/4.5f;
+            }
+            // ---- DRAWING TOWERS ----
+            
+            // Circle that indicated radious around tower where tower does damage.
+            Color circleColor = Color { 0 };
+            circleColor.a = 127;
+            circleColor.r = 255;
+            circleColor.b = 0;
+            circleColor.g = 0;
+            DrawCircle(mainCamera.target.x + mouseX, mainCamera.target.y + mouseY, 250, circleColor);
+
+            DrawTexture(zapTowerUnPlaced.texture, zapTowerUnPlaced.x, zapTowerUnPlaced.y, WHITE);
+            for (int i = 0; i < Towers.size(); i++)
+            {
+                DrawTexture(Towers.at(i).texture, Towers.at(i).x, Towers.at(i).y, WHITE);
             }
             
             ClearBackground(DARKPURPLE);
