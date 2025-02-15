@@ -1,0 +1,1 @@
+In order to build make cd into your preffered build folder, then run the CMakeLists.txt file located in the src folder using cmake. This will output all build files into the directory you are inside of in the terminal. You can then run ./main.
