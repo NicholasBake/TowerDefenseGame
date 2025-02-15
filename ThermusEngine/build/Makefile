@@ -246,6 +246,30 @@ update_mappings/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build
 .PHONY : update_mappings/fast
 
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.o: media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.o
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.o
+
+# target to build an object file
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.o
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.o
+
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.i: media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.i
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.i
+
+# target to preprocess a source file
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.i
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.i
+
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.s: media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.s
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.s
+
+# target to generate assembly for a file
+media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.s
+.PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.cpp.s
+
 media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.o: media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.cpp.o
 .PHONY : media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.o
 
@@ -313,6 +337,9 @@ help:
 	@echo "... glfw"
 	@echo "... main"
 	@echo "... raylib"
+	@echo "... media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.o"
+	@echo "... media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.i"
+	@echo "... media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Button.s"
 	@echo "... media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.o"
 	@echo "... media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.i"
 	@echo "... media/nicholas/E/Tower-defense/ThermusEngine/TowerDefenseGame/src/Tile.s"

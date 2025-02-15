@@ -1,4 +1,4 @@
-#include <raylib.h>
+#include "include.h"
 
 enum TILE_TYPE{
     TOWER,
@@ -9,8 +9,7 @@ enum TILE_TYPE{
 class Tile
 {
 private:
-    //void Scale();
-    float Scale;
+
 public:
 
     TILE_TYPE TYPE;
@@ -18,6 +17,11 @@ public:
     float x;
     float y;
     void SetScale(float i);
-    Tile(Texture2D Texture = LoadTexture(""), TILE_TYPE type = BACKGROUND, float x = 0, float y = 0, float scale = 1);
+    Tile() {};
+    Tile(Texture2D Texture, float scale) : texture(Texture){SetScale(scale);}
+    Tile(Texture2D Texture, TILE_TYPE type) : texture(Texture), TYPE(type){};
+    Tile(Texture2D Texture, TILE_TYPE type, float x, float y, float scale) : texture(Texture), TYPE(type), x(x), y(y){};
+    
+    
 };
 

@@ -1,10 +1,6 @@
-#include <iostream>
-//#include <chrono>
-//#include <thread>
-#include <raylib.h>
-#include <array>
-#include <vector>
+#include "include.h"
 #include "Tile.h"
+#include "Button.h"
 /* 90X90 IS THE LARGEST MAP SIZE AS OF NOW I HAVE NO IDEA WHY BUT THE TILE MAP SYSTEM DOESN'T LIKE PROCESSING IMAGES ABOVE 90X90 RESOLUTION */
 enum GAMESTATE{
     PLAYING,
@@ -13,16 +9,21 @@ enum GAMESTATE{
     MAINMENU,
     MAP
 };
-GAMESTATE gameState = PLAYING;
+GAMESTATE gameState = MAINMENU;
 
 Camera2D mainCamera = { 0 };
 
+// LA = Left Away, RT = Right towards, LT = Left towards, RA = Right away. (pertaining to where the model is facing in respect to the camera)
 Texture2D LAZapTower = { 0 };
 Texture2D LTZapTower = { 0 };
 Texture2D RAZapTower = { 0 };
 Texture2D RTZapTower = { 0 };
 Texture2D GreenGrassBG = { 0 };
 Texture2D PathBG = { 0 };
+Texture2D WallLA = { 0 };
+Texture2D WallLT = { 0 };
+Texture2D WallRA = { 0 };
+Texture2D WallRT = { 0 };
 
 Image MAPIMAGE = { 0 };
 
@@ -38,10 +39,53 @@ std::array<std::array<Tile, rows>, columns> Map;
 
 std::vector<Tile> Towers;
 
-float towerScale = 0.1f;
+    
+
 
 // UNPLACED TOWERS TILES
-Tile zapTowerUnPlaced = Tile();
+float towerScale = 0.1f;
+Tile zapTowerUnPlaced;
+
+// MAIN MENU UI ELEMENTS 
+void playButtonClick(){
+    gameState = PLAYING;
+}
+Color playButtonColor = Color{255,255,255,255};
+void playButtonHover(){
+    playButtonColor = Color { 255, 0, 0, 255 };
+}
+void playButtonExit(){
+    playButtonColor = Color {255, 255, 255, 255};
+}
+Button playButton = Button(mainCamera, 0, 60, playButtonClick, playButtonHover, playButtonExit);
+
+void mapButtonClick(){
+    gameState = MAP;
+}
+Color mapButtonColor = Color{255,255,255,255};
+void mapButtonHover(){
+    mapButtonColor = Color { 255, 0, 0, 255 };
+}
+void mapButtonExit(){
+    mapButtonColor = Color {255, 255, 255, 255};
+    std::cout << "RAN" << std::endl;
+}
+Button mapButton = Button(mainCamera, 0, 90, mapButtonClick, mapButtonHover, mapButtonExit);
+
+void quitButtonClick(){
+    exit(0);
+}
+Color quitButtonColor = Color{255,255,255,255};
+void quitButtonHover(){
+    quitButtonColor = Color { 255, 0, 0, 255 };
+}
+void quitButtonExit(){
+    quitButtonColor = Color {255, 255, 255, 255};
+    std::cout << "RAN" << std::endl;
+}
+Button quitButton = Button(mainCamera, 0, 120, quitButtonClick, quitButtonHover, quitButtonExit);
+
+
 
 void Start(){
     // - INITIALISING TEXTURES - 
@@ -63,49 +107,76 @@ void Start(){
     PathBG = LoadTexture("../TowerDefenseGame/img/GroundPath.png");
     textures.push_back(PathBG);
 
+    WallLA = LoadTexture("../TowerDefenseGame/img/WallLA.png");
+    textures.push_back(WallLA);
+
+    WallLT = LoadTexture("../TowerDefenseGame/img/WallLT.png");
+    textures.push_back(WallLT);
+
+    WallRA = LoadTexture("../TowerDefenseGame/img/WallRA.png");
+    textures.push_back(WallRA);
+
+    WallRT = LoadTexture("../TowerDefenseGame/img/WallRT.png");
+    textures.push_back(WallRT);
+
     MAPIMAGE = LoadImage("../TowerDefenseGame/img/map.png");
 
-    std::cout << MAPIMAGE.height << std::endl;
     // initialize the background vector
     for (int i = 0; i < MAPIMAGE.height; i++)
     {
         for (int j = 0; j < MAPIMAGE.width; j++)
         {
             Color pixelAtXY = GetImageColor(MAPIMAGE, j, i);
-            // Take the pixels at coordinates XY and make tiles based on the colors of those pixels. 0x9c5a3c is a PATH tile, 0x22b14c is a GRASS tile
-            if(ColorIsEqual(pixelAtXY, Color { 34, 177, 76, 255})){
-                std::cout << "GRASSBG" << std::endl;
+            // Take the pixels at coordinates XY of map image and make tiles based on the colors of those pixels.
+            /* --- COLORS TO TILES --- */
+            /*
+                0x9c5a3c - PATH TILE
+                0x22b14c - GRASS TILE
+                0X000000 - WALL LEFT AWAY TILE
+                0X464646 - WALL LEFT TOWARDS TILE
+            */
+            if(ColorIsEqual(pixelAtXY, Color { 0x22, 0xb1, 0x4c, 255})){
+                //std::cout << "GRASSBG" << std::endl;
                 Tile backgroundTile = Tile(GreenGrassBG, BACKGROUND);
                 backgroundTile.texture.height = 150;
                 backgroundTile.texture.width = 150;
                 Map.at(i).at(j) = backgroundTile;
             }
-            if(ColorIsEqual(pixelAtXY, Color { 156, 90, 60, 255 })){
-                std::cout << "PATHBG" << std::endl;
+            if(ColorIsEqual(pixelAtXY, Color { 0x9c, 0x5a, 0x3c, 255 })){
+                //std::cout << "PATHBG" << std::endl;
                 Tile backgroundTile = Tile(PathBG, BACKGROUND);
                 backgroundTile.texture.height = 150;
                 backgroundTile.texture.width = 150;
                 Map.at(i).at(j) = backgroundTile; 
                 //break;
             }
-            
+            if(ColorIsEqual(pixelAtXY, Color { 0x00, 0x00, 0x00, 255 })){
+                //std::cout << "PATHBG" << std::endl;
+                Tile backgroundTile = Tile(WallLA, BACKGROUND);
+                backgroundTile.texture.height = 150;
+                backgroundTile.texture.width = 150;
+                Map.at(i).at(j) = backgroundTile; 
+                //break;
+            }
+            if(ColorIsEqual(pixelAtXY, Color { 0x46, 0x46, 0x46, 255 })){
+                //std::cout << "PATHBG" << std::endl;
+                Tile backgroundTile = Tile(WallLT, BACKGROUND);
+                backgroundTile.texture.height = 150;
+                backgroundTile.texture.width = 150;
+                Map.at(i).at(j) = backgroundTile; 
+                //break;
+            }
         }
     }
     
     UnloadImage(MAPIMAGE);
-
-    zapTowerUnPlaced = Tile(RTZapTower, TOWER, 50, 50, towerScale);
-    //Towers.push_back(zapTowerUnPlaced);
+    zapTowerUnPlaced = Tile(LAZapTower, towerScale);
 }
-int mouseX = 0;
-int mouseY = 0;
 float mouseScrollSpeed = 0.050f;
 void GameLogic(){
     if(IsKeyDown(KEY_G)){
         gameState = PAUSED;
     }
-    mouseX = GetMousePosition().x;
-    mouseY = GetMousePosition().y;
     if(IsKeyDown(KEY_W)){
         mainCamera.target.y -= 10;
     }
@@ -121,6 +192,7 @@ void GameLogic(){
     
     // zoom functionality
     mainCamera.zoom += (GetMouseWheelMove() * mouseScrollSpeed);
+
     
     zapTowerUnPlaced.x = GetScreenToWorld2D(GetMousePosition(), mainCamera).x - (zapTowerUnPlaced.texture.width/2);
     zapTowerUnPlaced.y = GetScreenToWorld2D(GetMousePosition(), mainCamera).y- (zapTowerUnPlaced.texture.height/2);
@@ -141,10 +213,27 @@ void GameOver(){
     
 }
 void MapCreation(){
-
+    BeginDrawing();
+        BeginMode2D(mainCamera);
+            ClearBackground(GREEN);
+        EndMode2D();
+    EndDrawing();
 }
 void MainMenu(){
+    BeginDrawing();
+        BeginMode2D(mainCamera);
+            ClearBackground(BLACK);
+            // Title
+            DrawText("TOWER DEFENSE GAME", 0,0, 45, WHITE);
+            // Play button
+            playButton.drawButton("PLAY", playButtonColor);
+            // Map Creation Button
+            mapButton.drawButton("MAP CREATION", mapButtonColor);
+            // Quit Button
+            quitButton.drawButton("QUIT", quitButtonColor);
 
+        EndMode2D();
+    EndDrawing();
 }
 // Method where we, well render. Using game logic updated every timestep, it renders each tile deciding its' color based on if the tile is a snake, food, or normal tile.
 void Render(){
@@ -196,6 +285,7 @@ void Render(){
             for (int i = 0; i < Towers.size(); i++)
             {
                 DrawTexture(Towers.at(i).texture, Towers.at(i).x, Towers.at(i).y, WHITE);
+                std::cout << Towers.at(i).x << std::endl;
             }
             
             ClearBackground(DARKPURPLE);
@@ -205,7 +295,7 @@ void Render(){
 
 int main() 
 {      
-    InitWindow(1500, 1000, "Thermus Application");
+    InitWindow(800, 800, "Thermus Application");
 
     SetTargetFPS(60);
     
@@ -214,6 +304,9 @@ int main()
     Start();
     while (!WindowShouldClose())
     {
+        if(gameState == MAINMENU){
+            MainMenu();
+        }
         if(gameState == PLAYING){
             GameLogic();
             Render();
@@ -234,8 +327,6 @@ int main()
     {
         UnloadTexture(textures.at(i));
     }
-    
-    UnloadTexture(LAZapTower);
     CloseWindow();
     return 0;
 }

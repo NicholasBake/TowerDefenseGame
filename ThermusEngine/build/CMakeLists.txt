@@ -21,5 +21,5 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
 endif()
 
 
-add_executable(main ${CMAKE_CURRENT_SOURCE_DIR}/../TowerDefenseGame/src/Tile.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../TowerDefenseGame/src/main.cpp)
+add_executable(main ${CMAKE_CURRENT_SOURCE_DIR}/../TowerDefenseGame/src/Button.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../TowerDefenseGame/src/Tile.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../TowerDefenseGame/src/main.cpp)
 target_link_libraries(main raylib)
